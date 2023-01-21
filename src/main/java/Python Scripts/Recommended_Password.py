@@ -30,7 +30,7 @@ def Recommended_Password(words): #does the recommended password
     spassword= ' '.join(password) #make he li a in
 
 
-    return spassword
+    print(spassword)
         
 
 
