@@ -5,8 +5,15 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
+import java.net.URL;
 
 
 public class HelloController {
@@ -16,6 +23,9 @@ public class HelloController {
 
     @FXML
     private JFXButton closeButtonMainMenu;
+
+    @FXML
+    private JFXButton openPasswordGenerator;
 
     @FXML
     protected void closeButtonMainMenuAction(ActionEvent event) {
@@ -35,5 +45,24 @@ public class HelloController {
     public void closeButtomMainMenuAction(ActionEvent actionEvent) {
         System.out.println("[APP] Application closed.");
         Platform.exit();
+    }
+
+    public void openPasswordGeneratorMenu(ActionEvent actionEvent) {
+        System.out.println("[APP] Password Generator Menu Opened");
+        openPasswordGenerator.getScene().getWindow().hide();
+        Stage stagePG = new Stage();
+        stagePG.initStyle(StageStyle.UNDECORATED);
+        try{
+            URL fxmlLocation = HelloController.class.getResource("pg-menu.fxml");
+//            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
+            Parent root = loader.load(fxmlLocation);
+            Scene scene = new Scene(root);
+            stagePG.setScene(scene);
+            stagePG.show();
+            stagePG.setResizable(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
