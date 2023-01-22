@@ -87,33 +87,33 @@ public class PtMenuController implements Initializable {
         System.out.println("[APP] Set Complexity Bar");
         cracktimeResult.setText(crackTime);
         if (strength.equals("very weak")){
-            complexityBar.setStyle("-fx-accent: #8B0000;");
+            complexityBar.setStyle("-fx-accent: #FF0000;");
             complexityBar.setProgress(0.2);
             complexityResult.setText("Very Weak");
         }else if (strength.equals("weak")){
             complexityBar.setStyle("-fx-accent: #FF0000;");
-            complexityBar.setProgress(0.4);
+            complexityBar.setProgress(0.3);
             complexityResult.setText("Weak");
         } else if (strength.equals("medium")){
             complexityBar.setStyle("-fx-accent: #FFAC1C;");
-            complexityBar.setProgress(0.6);
+            complexityBar.setProgress(0.5);
             complexityResult.setText("Medium");
 
         } else if (strength.equals("strong")){
             complexityBar.setStyle("-fx-accent: #90ee90;");
-            complexityBar.setProgress(0.8);
+            complexityBar.setProgress(0.75);
             complexityResult.setText("Strong");
         } else if (strength.equals("very strong")){
-            complexityBar.setStyle("-fx-accent: #1A6A1A;");
+            complexityBar.setStyle("-fx-accent: #90ee90;");
             complexityBar.setProgress(1.0);
             complexityResult.setText("Very Strong");
         } else if (strength.equals("common")){
-            complexityBar.setStyle("-fx-accent: #8B0000");
-            complexityBar.setProgress(1.0);
+            complexityBar.setStyle("-fx-accent: #FF0000");
+            complexityBar.setProgress(0.3);
             complexityResult.setText("Very Common!");
         } else if (strength.equals("repetitive")){
-            complexityBar.setStyle("-fx-accent: #8B0000");
-            complexityBar.setProgress(1.0);
+            complexityBar.setStyle("-fx-accent: #FF0000");
+            complexityBar.setProgress(0.2);
             complexityResult.setText("Very Repetitive!");
         }
     }
