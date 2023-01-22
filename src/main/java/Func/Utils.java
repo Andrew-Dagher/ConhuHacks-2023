@@ -43,6 +43,27 @@ public class Utils {
       }
       return returnArray;
    }
+   public boolean FindLength(String password){
+      if (password.length() >= 10){
+         return true;
+      }
+      else return false;
+   }
+   public boolean FindSpecialCharacter(String password){
+      if (password.contains("$"+"%"+"#"+"@"+"!"+"."+"_"+"-"+","+"'"+"\""+"~"+"("+")"+"*"+"+"+"/"+":"+";"+"<"+"="+">"+"?"+"["+"]"+"^"+"`"+"{"+"}"+"|"+"\'")){
+         return true;
+      }
+      else return false;
+      }
+   public boolean CapitalLetter(String password){
+      if(password.toLowerCase().equals(password)) return false;
+      return true;
+   }
 
+   public boolean Numbers(String password){
+      for (int i = 0; i < password.length(); i++)
+         if (password.substring(i,i).contains("1234567890")) return true;
+      return false;
+   }
 
 }
