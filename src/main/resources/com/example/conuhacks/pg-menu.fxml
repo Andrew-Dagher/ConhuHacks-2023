@@ -15,6 +15,11 @@
             <Font size="34.0" />
          </font>
       </Text>
+      <JFXButton fx:id="closeButtonPG" layoutX="502.0" onAction="#closeButtonPasswordGenerator" prefHeight="45.0" prefWidth="96.0" text="Close" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
    <padding>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
