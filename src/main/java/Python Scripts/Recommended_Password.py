@@ -1,5 +1,9 @@
 import random
-
+import sys
+Input=""
+for i in range(len(sys.argv)): #get the input from the front end
+    Input+=sys.argv[i]
+    
 def Recommended_Password(words): #does the recommended password
     Word_Counter=1
     password=[]# store the password as a list
@@ -37,7 +41,7 @@ def Recommended_Password(words): #does the recommended password
 
 
     print(spassword)
-    
+Recommended_Password(Input)
 
 
 
