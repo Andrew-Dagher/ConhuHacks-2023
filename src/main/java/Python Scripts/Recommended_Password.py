@@ -3,10 +3,8 @@ import sys
 
 Mem=sys.argv[1]#store if the user wants memorable or not
 
-LInput=[]#store rest of input as a list
+LInput=sys.argv[2] #store rest of input as a list
 
-for i in range(len(sys.argv)):#if there is an issue try -1 after length
-    LInput.append(sys.argv[i])
 
 Input=' '.join(LInput)
 
@@ -46,23 +44,33 @@ def Recommended_Password_Mem(words): #does the recommended memorable password
 
     
     if Word_Counter<4:
+        dontRun = False
+        for i in range(len(password)):
+            if password[i] in vowels:
+                dontRun = True
         while True:#make a random consonnant a Capital
+            if dontRun: break;
             i=random.randint(0,(len(password)-1))
-            if password[i] not in vowels and password[i] not in vowel_replacements and password[i] not in spaces_replacements: 
-                
+            if password[i] not in vowels and password[i] not in vowel_replacements and password[i] not in spaces_replacements:
+
                 password[i]=password[i].upper()
                 break
+
         
 
     spassword= ' '.join(password) 
 
 
     print(spassword)
+try:
+    if Mem== "true":
+        Recommended_Password_Not_Mem()
+    else:
+        Recommended_Password_Mem(LInput)
+except Exception as e:
+    print(e)
 
-if Mem== True:
-    Recommended_Password_Mem(Input)
-else:
-    Recommended_Password_Not_Mem()
+
 
 
 

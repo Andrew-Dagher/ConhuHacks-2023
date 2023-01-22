@@ -119,8 +119,7 @@ public class PtMenuController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        complexityBar.setProgress(1);
-        complexityBar.setStyle("-fx-accent: #00FF00;");
+
     }
 
     public void buttonTestPassword(ActionEvent actionEvent) throws IOException {

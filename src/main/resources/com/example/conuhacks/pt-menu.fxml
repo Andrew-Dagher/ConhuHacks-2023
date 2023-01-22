@@ -64,7 +64,7 @@
       <Line endX="315.0" endY="7.0" layoutX="286.0" layoutY="319.0" startX="-254.0" startY="4.5" stroke="WHITE" />
       <Line endX="-15.0" endY="180.0" layoutX="616.0" layoutY="144.0" startX="-15.0" startY="-3.0" stroke="WHITE" />
       <Line endX="-15.0" endY="180.0" layoutX="47.0" layoutY="143.0" startX="-13.70709228515625" startY="-1.75" stroke="WHITE" />
-      <ProgressBar fx:id="complexityBar" layoutX="425.0" layoutY="197.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="145.0" progress="0.0" />
+      <ProgressBar fx:id="complexityBar" layoutX="425.0" layoutY="197.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="145.0" progress="0.0" stylesheets="@PTstyle.css" />
       <JFXButton fx:id="buttonTestPassword" layoutX="224.0" layoutY="346.0" onAction="#buttonTestPassword" prefHeight="28.0" prefWidth="132.0" stylesheets="@PTstyle.css" text="Test Strength" textFill="WHITE">
          <font>
             <Font size="17.0" />
