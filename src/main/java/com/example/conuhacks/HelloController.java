@@ -9,6 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -26,6 +29,12 @@ public class HelloController {
 
     @FXML
     private JFXButton openPasswordGenerator;
+
+    @FXML
+    private BorderPane dragBar;
+
+    private double x = 0;
+    private double y = 0;
 
     @FXML
     protected void closeButtonMainMenuAction(ActionEvent event) {
@@ -64,5 +73,26 @@ public class HelloController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    public void dragBar_trigger(MouseDragEvent mouseDragEvent) {
+        System.out.println("clicked enter");
+        Stage stage = (Stage) openPasswordGenerator.getScene().getWindow();
+        stage.setY(mouseDragEvent.getScreenY() - y);
+        stage.setX(mouseDragEvent.getScreenX() - x);
+    }
+
+    public void dragBar_trigger_exit(MouseDragEvent mouseDragEvent) {
+        System.out.println("clicked exit");
+        x = mouseDragEvent.getSceneX();
+        y = mouseDragEvent.getSceneY();
+    }
+
+    public void dragBar_trigger_drag(DragEvent dragEvent) {
+        System.out.println("drag enter");
+    }
+
+    public void dragBar_trigger_drag_exit(DragEvent dragEvent) {
+        System.out.println("drag exit");
     }
 }

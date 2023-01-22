@@ -1,10 +1,10 @@
 #anchorPaneMenu{
 
     -fx-background-color: linear-gradient(
-        from 0% 0% to 100% 200%,
+        to left,
         repeat,
-        #19194a 0%,
-        #0B0B45 50%
+        #21a6ff 0%,
+        #0B0B45 40%
       );
 
 }
