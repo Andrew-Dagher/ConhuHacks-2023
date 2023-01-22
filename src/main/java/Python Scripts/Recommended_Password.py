@@ -1,10 +1,27 @@
 import random
 import sys
-Input=""
-for i in range(len(sys.argv)): #get the input from the front end
-    Input+=sys.argv[i]
-    
-def Recommended_Password(words): #does the recommended password
+
+Mem=sys.argv[1]#store if the user wants memorable or not
+
+LInput=[]#store rest of input as a list
+
+for i in range(len(sys.argv)):#if there is an issue try -1 after length
+    LInput.append(sys.argv[i])
+
+Input=' '.join(LInput)
+
+
+def Recommended_Password_Not_Mem(): #does random non-memorable passwords.
+    chars="._-,0123456789!#$%&'()*+/:;<=>?@[\]^`{|}~abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    password=""
+    for i in range(21):
+        password+=chars[random.randint(0,(len(chars)-1))]
+    print(password)
+
+
+
+
+def Recommended_Password_Mem(words): #does the recommended memorable password
     Word_Counter=1
     password=[]# store the password as a list
     for letter in words: 
@@ -41,7 +58,11 @@ def Recommended_Password(words): #does the recommended password
 
 
     print(spassword)
-Recommended_Password(Input)
+
+if Mem== True:
+    Recommended_Password_Mem(Input)
+else:
+    Recommended_Password_Not_Mem()
 
 
 
