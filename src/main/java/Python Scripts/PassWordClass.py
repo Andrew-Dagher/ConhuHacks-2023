@@ -1,8 +1,6 @@
+import math
 import sys
-Input=""
-for i in range(len(sys.argv)): #get the input from the front end
-    Input+=sys.argv[i]
-
+Input=sys.argv[1]
 class Password:
     def __init__(self, password):
         self.password = password
@@ -54,18 +52,18 @@ class Password:
     def output_strength(self):
 
         if self.Common==True:
-            print(f"Very weak, {self.common_item[0]} is a common password.")
+            print("Common")
             return 0
         if self.points>=8:
-            print("Very Strong")
+            print("very strong")
         elif self.points>=6:
-            print("Strong")
+            print("strong")
         elif self.points>=6:
-            print("Medium")
+            print("medium")
         elif self.points>=4:
-            print("Weak")
+            print("weak")
         else:
-            print("Very Weak")
+            print("very weak")
 
     def check_common(self, file_name):
         with open(file_name, 'r') as f:
@@ -74,7 +72,57 @@ class Password:
                 if item in self.password:
                     self.Common=True
                     self.common_item.append(item)
+    
+    def time_crack(self):
+        special_characters="._-,!#$%&'()*+/:;<=>?@[\]^`{ |}\"~\'"
+        capital_letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        numbers="1234567890"
+        lower_case_letters="abcdefghijklmnopqrstuvwxyz"
+        
+        base=0
+        exponant=len(self.password)
 
+        if self.Common==True:
+            print("Instantly")
+            return
+
+        if self.Special== True:
+            base+=len(special_characters)
+        if self.Capital== True:
+            base+=len(capital_letters)
+        if self.Numbers== True:
+            base+=len(numbers)
+        if self.Lower== True:
+            base+=len(lower_case_letters)
+
+        time_s=((base**exponant)/(5*10**5))
+        time_mi=time_s//60
+        time_h=time_mi//60
+        time_d=time_h//24
+        time_mo=time_d//30
+        time_y=time_mo//12
+
+        if time_y==0: #disgusting
+            if time_mo==0:
+                if time_d==0:
+                    if time_h==0:
+                        if time_mi==0:
+                            if time_s<1:
+                                print("Instantly")
+                            else:
+                                print(str(math.trunc(time_s))+" seconds.")    
+                        else:
+                            print(str(math.trunc(time_mi))+" minutes.") 
+                    else:
+                        print(str(math.trunc(time_h))+" hours.")
+                else:
+                    print(str(math.trunc(time_d))+" days.")
+            else:
+                print(str(math.trunc(time_mo))+" months.")
+        elif time_y>1000000:
+            print("Over a million years.")
+        else:
+            print(str(math.trunc(time_y))+ " years.")
 
 
 
@@ -88,6 +136,7 @@ print(p.Special)
 print(p.Lower)
 print(p.Capital)
 print(p.Numbers)
+print(p.time_crack())
 
 
 
