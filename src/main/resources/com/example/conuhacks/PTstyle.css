@@ -1,0 +1,19 @@
+#anchorPanePt{
+
+    -fx-background-color: linear-gradient(
+        to left,
+        repeat,
+        #21a6ff 0%,
+        #0B0B45 40%
+      );
+}
+    #closeButtonPT:hover {
+        -fx-background-color: red;
+}
+     #BackButtonPT:hover {
+            -fx-background-color: grey;
+
+
+            }
+    }
+
