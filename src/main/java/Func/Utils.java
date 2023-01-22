@@ -2,6 +2,12 @@ package Func;
 
 import javafx.application.Platform;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
 public class Utils {
 
    public static final String MAIN_COLOUR = "";
@@ -16,14 +22,24 @@ public class Utils {
       System.out.println("[APP] Application has been closed");
       Platform.exit();
    }
+   Process mProcess;
+   public  void runPyScript(String path,String[] args) throws IOException {
+      String s;
+      String [] cmd = new String[args.length+2];
+      cmd[0] = "python";
+      cmd[1] = path;
+      for (int i = 2; i < cmd.length; i++){
+         cmd[i] = args[i-2];
+      }
+      for (String e: cmd) System.out.println(e);
+      Runtime r = Runtime.getRuntime();
 
-   /**
-    * Run a python script, with specified arguments
-    * @param path
-    * @param args
-    * @return
-    */
-   public static boolean runPythonScript(String path, String[] args){
-      return true;
+      Process p = r.exec(cmd);
+      BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+      while((s=in.readLine()) != null){
+         System.out.println(s);
+      }
    }
+
+
 }

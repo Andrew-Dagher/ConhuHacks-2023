@@ -1,5 +1,6 @@
 package com.example.conuhacks;
 
+import Func.Utils;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -36,7 +37,9 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Utils a = new Utils();
+        a.runPyScript("C:\\Users\\darra\\IdeaProjects\\hack\\src\\main\\java\\Python Scripts\\RandomScript.py",new String[]{"a","b"});
         launch();
     }
 
