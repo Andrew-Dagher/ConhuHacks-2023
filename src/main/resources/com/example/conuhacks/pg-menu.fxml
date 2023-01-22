@@ -37,7 +37,7 @@
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXCheckBox layoutX="309.0" layoutY="265.0" text="Make Password User-Friendly?" textFill="WHITE" unCheckedColor="WHITE" />
+      <JFXCheckBox layoutX="195.0" layoutY="316.0" text="Make Password User-Friendly?" textFill="WHITE" unCheckedColor="WHITE" />
       <JFXButton fx:id="BackButtonGP" layoutX="490.0" layoutY="341.0" onAction="#BackButtonPGAction" prefHeight="45.0" prefWidth="96.0" text="← Back" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
@@ -48,6 +48,11 @@
             <Image url="@bulldozer_logo.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="buttonAddKeywords" layoutX="312.0" layoutY="258.0" onAction="#buttonAddKeyword" prefHeight="28.0" prefWidth="132.0" text="Add Keywords" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
    </children>
    <padding>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />

@@ -15,6 +15,14 @@
      #buttonGeneratePassword:hover{
      -fx-background-color: grey;
     }
+    #buttonAddKeywords{
+      -fx-border-color: white;
+       -fx-background-color: transparent;
+           }
+
+    #buttonAddKeywords:hover{
+       -fx-background-color: grey;
+          }
 
 #closeButtonPG:hover {
    -fx-background-color: red;
@@ -24,3 +32,5 @@
           -fx-background-color: grey;
           -fx-background-radius: 15px;
           }
+
+

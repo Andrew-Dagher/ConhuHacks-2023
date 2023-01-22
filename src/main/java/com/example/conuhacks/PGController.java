@@ -15,6 +15,10 @@ import java.net.URL;
 
 public class PGController {
 
+    @FXML
+    void buttonAddKeyword(ActionEvent event) {
+
+    }
 
     @FXML
     private AnchorPane anchorPanePg;
