@@ -10,7 +10,7 @@
    <children>
       <JFXButton fx:id="buttonGeneratePassword" layoutX="234.0" layoutY="268.0" onAction="#buttonGeneratePassword" prefHeight="28.0" prefWidth="132.0" text="Generate" textFill="WHITE" AnchorPane.topAnchor="268.0" />
       <Text fill="WHITE" layoutX="205.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="here is where the pass generates" textAlignment="CENTER" wrappingWidth="190.21630859375" />
-      <Text fill="WHITE" layoutX="98.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Generate A Secure and Random password " textAlignment="CENTER" wrappingWidth="404.21630859375">
+      <Text fill="WHITE" layoutX="80.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Generate A Secure and Random password " textAlignment="CENTER" wrappingWidth="404.21630859375">
          <font>
             <Font size="34.0" />
          </font>

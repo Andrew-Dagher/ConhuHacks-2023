@@ -1,0 +1,14 @@
+#anchorPaneMenu{
+
+   -fx-background-color: linear-gradient(
+       from 0% 0% to 100% 200%,
+       repeat,
+       #19194a 0%,
+       #0B0B45 50%
+     );
+
+}
+
+#closeButtonPG:hover {
+   -fx-background-color: red;
+}

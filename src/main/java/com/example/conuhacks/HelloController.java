@@ -31,6 +31,9 @@ public class HelloController {
     private JFXButton openPasswordGenerator;
 
     @FXML
+    private JFXButton openPasswordTest;
+
+    @FXML
     private BorderPane dragBar;
 
     private double x = 0;
@@ -44,6 +47,21 @@ public class HelloController {
     @FXML
     protected void openPasswordTestAction() {
         System.out.println("[APP] Opening Password Testing Menu");
+        openPasswordGenerator.getScene().getWindow().hide();
+        Stage stagePG = new Stage();
+        stagePG.initStyle(StageStyle.UNDECORATED);
+        try{
+            URL fxmlLocation = HelloController.class.getResource("pt-menu.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
+            Parent root = loader.load(fxmlLocation);
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("PTstyle.css").toExternalForm());
+            stagePG.setScene(scene);
+            stagePG.show();
+            stagePG.setResizable(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -52,8 +70,7 @@ public class HelloController {
     }
 
     public void closeButtomMainMenuAction(ActionEvent actionEvent) {
-        System.out.println("[APP] Application closed.");
-        Platform.exit();
+        Func.Utils.logClose();
     }
 
     public void openPasswordGeneratorMenu(ActionEvent actionEvent) {
@@ -67,6 +84,7 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load(fxmlLocation);
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("PgStyle.css").toExternalForm());
             stagePG.setScene(scene);
             stagePG.show();
             stagePG.setResizable(false);
@@ -74,25 +92,6 @@ public class HelloController {
             e.printStackTrace();
         }
     }
-    @FXML
-    public void dragBar_trigger(MouseDragEvent mouseDragEvent) {
-        System.out.println("clicked enter");
-        Stage stage = (Stage) openPasswordGenerator.getScene().getWindow();
-        stage.setY(mouseDragEvent.getScreenY() - y);
-        stage.setX(mouseDragEvent.getScreenX() - x);
-    }
 
-    public void dragBar_trigger_exit(MouseDragEvent mouseDragEvent) {
-        System.out.println("clicked exit");
-        x = mouseDragEvent.getSceneX();
-        y = mouseDragEvent.getSceneY();
-    }
 
-    public void dragBar_trigger_drag(DragEvent dragEvent) {
-        System.out.println("drag enter");
-    }
-
-    public void dragBar_trigger_drag_exit(DragEvent dragEvent) {
-        System.out.println("drag exit");
-    }
 }
