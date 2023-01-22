@@ -11,4 +11,14 @@
 
 #closeButtonMainMenu:hover {
     -fx-background-color: red;
+     -fx-background-radius: 15px;
 }
+
+    #openPasswordTest:hover {
+        -fx-background-color: grey;
+        -fx-background-radius: 15px;
+    }
+    #openPasswordGenerator:hover {
+            -fx-background-color: grey;
+            -fx-background-radius: 15px;
+        }

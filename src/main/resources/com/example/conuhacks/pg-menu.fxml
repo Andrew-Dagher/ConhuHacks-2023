@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,6 +13,7 @@
 
 <AnchorPane fx:id="anchorPanePg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@PgStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.conuhacks.PGController">
    <children>
+      <Button layoutX="456.0" layoutY="442.0" mnemonicParsing="false" text="Button" />
       <JFXButton fx:id="buttonGeneratePassword" layoutX="138.0" layoutY="256.0" onAction="#buttonGeneratePassword" prefHeight="28.0" prefWidth="132.0" text="Generate" textFill="WHITE" AnchorPane.topAnchor="256.0">
          <font>
             <Font size="17.0" />
@@ -25,7 +27,7 @@
             <Font size="34.0" />
          </font>
       </Text>
-      <JFXButton fx:id="closeButtonPG" layoutX="510.0" onAction="#closeButtonPasswordGenerator" prefHeight="45.0" prefWidth="96.0" text="Close" textFill="WHITE">
+      <JFXButton fx:id="closeButtonPG" layoutX="490.0" layoutY="14.0" onAction="#closeButtonPasswordGenerator" prefHeight="45.0" prefWidth="96.0" text="Close" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -36,7 +38,7 @@
          </opaqueInsets>
       </JFXTextField>
       <JFXCheckBox layoutX="309.0" layoutY="265.0" text="Make Password User-Friendly?" textFill="WHITE" unCheckedColor="WHITE" />
-      <JFXButton fx:id="BackButtonGP" layoutX="510.0" layoutY="356.0" onAction="#BackButtonPGAction" prefHeight="45.0" prefWidth="96.0" text="← Back" textFill="WHITE">
+      <JFXButton fx:id="BackButtonGP" layoutX="490.0" layoutY="341.0" onAction="#BackButtonPGAction" prefHeight="45.0" prefWidth="96.0" text="← Back" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

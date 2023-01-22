@@ -84,6 +84,15 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load(fxmlLocation);
             Scene scene = new Scene(root);
+            scene.setOnMousePressed(mouseEvent -> {
+                x = mouseEvent.getSceneX();
+                y = mouseEvent.getSceneY();
+            });
+
+            scene.setOnMouseDragged(mouseEvent -> {
+                stagePG.setX(mouseEvent.getScreenX() - x);
+                stagePG.setY(mouseEvent.getScreenY() - y);
+            });
             scene.getStylesheets().add(getClass().getResource("PgStyle.css").toExternalForm());
             stagePG.setScene(scene);
             stagePG.show();

@@ -7,14 +7,20 @@
            #0B0B45 40%
          );
 }
-    #buttonGeneratePassword{
-        -fx-border-color: white;
-         /*-fx-background-color: lightgray;*/
+     #buttonGeneratePassword{
+     -fx-border-color: white;
+     -fx-background-color: #0B0B45;
+     }
+
+     #buttonGeneratePassword:hover{
+     -fx-background-color: grey;
     }
 
 #closeButtonPG:hover {
    -fx-background-color: red;
+   -fx-background-radius: 15px;
 }
  #BackButtonGP:hover {
           -fx-background-color: grey;
+          -fx-background-radius: 15px;
           }
