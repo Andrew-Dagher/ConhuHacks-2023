@@ -1,5 +1,7 @@
 package Func;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 
 import java.io.BufferedReader;
@@ -38,31 +40,51 @@ public class Utils {
       BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
       ArrayList<String> returnArray = new ArrayList<String>();
       while((s=in.readLine()) != null){
+         System.out.println(s);
          if (s.equals("None")) continue;
          returnArray.add(s);
       }
       return returnArray;
    }
-   public boolean FindLength(String password){
-      if (password.length() >= 10){
-         return true;
-      }
-      else return false;
+   public boolean hasLength(JFXTextField password) {
+      if (password.getText().length()>=10) return true;
+      return false;
    }
-   public boolean FindSpecialCharacter(String password){
-      if (password.contains("$"+"%"+"#"+"@"+"!"+"."+"_"+"-"+","+"'"+"\""+"~"+"("+")"+"*"+"+"+"/"+":"+";"+"<"+"="+">"+"?"+"["+"]"+"^"+"`"+"{"+"}"+"|"+"\'")){
-         return true;
-      }
-      else return false;
-      }
-   public boolean CapitalLetter(String password){
-      if(password.toLowerCase().equals(password)) return false;
+   public boolean hasSpecialCharacter(JFXTextField password){
+      String special_characters="._-,!#$%&'()*+/:;<=>?@[\\]^`{ |}\"~'";
+      char[] passwordChar = password.getText().toCharArray();
+      for (char c : passwordChar){ if (special_characters.contains(c+"")) return true; }
+      return false;
+   }
+   public boolean hasCapitalLetter(JFXTextField password){
+      if(password.getText().toLowerCase().equals(password.getText())) return false;
       return true;
    }
 
-   public boolean Numbers(String password){
-      for (int i = 0; i < password.length(); i++)
-         if (password.substring(i,i).contains("1234567890")) return true;
+   public boolean hasNumbers(JFXTextField password) {
+      char[] passwordChar = password.getText().toCharArray();
+      for (char c : passwordChar) { if (Character.isDigit(c)) return true; }
+      return false;
+   }
+
+   public boolean hasLengthP(JFXPasswordField password) {
+      if (password.getText().length()>=10) return true;
+      return false;
+   }
+   public boolean hasSpecialCharacterP(JFXPasswordField password){
+      String special_characters="._-,!#$%&'()*+/:;<=>?@[\\]^`{ |}\"~'";
+      char[] passwordChar = password.getText().toCharArray();
+      for (char c : passwordChar){ if (special_characters.contains(c+"")) return true; }
+      return false;
+   }
+   public boolean hasCapitalLetterP(JFXPasswordField password){
+      if(password.getText().toLowerCase().equals(password.getText())) return false;
+      return true;
+   }
+
+   public boolean hasNumbersP(JFXPasswordField password) {
+      char[] passwordChar = password.getText().toCharArray();
+      for (char c : passwordChar) { if (Character.isDigit(c)) return true; }
       return false;
    }
 

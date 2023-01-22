@@ -1,10 +1,7 @@
 package com.example.conuhacks;
 
 import Func.Utils;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXProgressBar;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,6 +45,9 @@ public class PtMenuController implements Initializable {
     private JFXCheckBox checkListUpper;
 
     @FXML
+    private JFXPasswordField inputPassField;
+
+    @FXML
     private JFXCheckBox checkListNumber;
 
     @FXML
@@ -83,7 +83,7 @@ public class PtMenuController implements Initializable {
 
     public void setComplexityBar(String strength, String crackTime){
         System.out.println("called");
-        if (!(strength.equals("weak") || strength.equals("very weak") || strength.equals("common") || strength.equals("medium") || strength.equals("strong") || strength.equals("very strong"))) return;
+        if (!(strength.equals("weak") || strength.equals("repetitive") || strength.equals("very weak") || strength.equals("common") || strength.equals("medium") || strength.equals("strong") || strength.equals("very strong"))) return;
         System.out.println("[APP] Set Complexity Bar");
         cracktimeResult.setText(crackTime);
         if (strength.equals("very weak")){
@@ -111,23 +111,53 @@ public class PtMenuController implements Initializable {
             complexityBar.setStyle("-fx-accent: #8B0000");
             complexityBar.setProgress(1.0);
             complexityResult.setText("Very Common!");
+        } else if (strength.equals("repetitive")){
+            complexityBar.setStyle("-fx-accent: #8B0000");
+            complexityBar.setProgress(1.0);
+            complexityResult.setText("Very Repetitive!");
         }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        complexityBar.setProgress(1);
+        complexityBar.setStyle("-fx-accent: #00FF00;");
     }
 
     public void buttonTestPassword(ActionEvent actionEvent) throws IOException {
         System.out.println("[APP] Application running password strength test");
         Utils a = new Utils();
-        ArrayList<String> arr = a.runPyScript("src/main/java/Python Scripts/PassWordClass.py",new String[]{inputTestingPassword.getText()});
-        setComplexityBar(arr.get(0),arr.get(1));
+        if (inputTestingPassword.isVisible()) {
+            ArrayList<String> arr = a.runPyScript("src/main/java/Python Scripts/PassWordClass.py",new String[]{inputTestingPassword.getText()});
+            setComplexityBar(arr.get(0),arr.get(1));
+            return;
+        }
+        if (inputPassField.isVisible()){
+            ArrayList<String> arr = a.runPyScript("src/main/java/Python Scripts/PassWordClass.py",new String[]{inputPassField.getText()});
+            setComplexityBar(arr.get(0),arr.get(1));
+            return;
+        }
+
     }
 
 
     public void updateCheckList(KeyEvent keyEvent) throws IOException {
-        System.out.println(keyEvent.getCharacter());
+        Utils a = new Utils();
+        if (a.hasCapitalLetter(inputTestingPassword))
+            checkListUpper.setSelected(true);
+        else
+            checkListUpper.setSelected(false);
+        if (a.hasNumbers(inputTestingPassword))
+            checkListNumber.setSelected(true);
+        else
+            checkListNumber.setSelected(false);
+        if (a.hasLength(inputTestingPassword))
+            checkListLength.setSelected(true);
+        else
+            checkListLength.setSelected(false);
+        if (a.hasSpecialCharacter(inputTestingPassword))
+            checkListCharacter.setSelected(true);
+        else
+            checkListCharacter.setSelected(false);
     }
 
     public void undoCheck(ActionEvent actionEvent) {
@@ -144,5 +174,42 @@ public class PtMenuController implements Initializable {
 
     public void undoCheckNumber(ActionEvent actionEvent) {
         checkListNumber.setSelected(false);
+    }
+
+    public void checkHideAction(ActionEvent actionEvent) {
+        if (inputPassField.isVisible()) {
+            inputPassField.setVisible(false);
+            inputTestingPassword.setVisible(true);
+            inputTestingPassword.setText(inputPassField.getText());
+
+            return;
+        }
+        if (inputTestingPassword.isVisible()){
+            inputPassField.setVisible(true);
+            inputTestingPassword.setVisible(false);
+            inputPassField.setText(inputTestingPassword.getText());
+            return;
+        }
+
+    }
+
+    public void updateCheckListPassword(KeyEvent keyEvent) {
+        Utils a = new Utils();
+        if (a.hasCapitalLetterP(inputPassField))
+            checkListUpper.setSelected(true);
+        else
+            checkListUpper.setSelected(false);
+        if (a.hasNumbersP(inputPassField))
+            checkListNumber.setSelected(true);
+        else
+            checkListNumber.setSelected(false);
+        if (a.hasLengthP(inputPassField))
+            checkListLength.setSelected(true);
+        else
+            checkListLength.setSelected(false);
+        if (a.hasSpecialCharacterP(inputPassField))
+            checkListCharacter.setSelected(true);
+        else
+            checkListCharacter.setSelected(false);
     }
 }

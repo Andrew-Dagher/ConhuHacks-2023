@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ProgressBar?>
@@ -19,7 +20,7 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="inputTestingPassword" focusColor="WHITE" layoutX="155.0" layoutY="86.0" onKeyPressed="#updateCheckList" prefHeight="27.0" prefWidth="311.0" style="-fx-background-color: White;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="inputTestingPassword" focusColor="WHITE" layoutX="155.0" layoutY="86.0" onKeyReleased="#updateCheckList" prefHeight="27.0" prefWidth="311.0" style="-fx-background-color: White;" unFocusColor="#ffffff00">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -63,7 +64,7 @@
       <Line endX="315.0" endY="7.0" layoutX="286.0" layoutY="319.0" startX="-254.0" startY="4.5" stroke="WHITE" />
       <Line endX="-15.0" endY="180.0" layoutX="616.0" layoutY="144.0" startX="-15.0" startY="-3.0" stroke="WHITE" />
       <Line endX="-15.0" endY="180.0" layoutX="47.0" layoutY="143.0" startX="-13.70709228515625" startY="-1.75" stroke="WHITE" />
-      <ProgressBar fx:id="complexityBar" layoutX="425.0" layoutY="197.0" prefHeight="5.0" prefWidth="145.0" progress="0.16" />
+      <ProgressBar fx:id="complexityBar" layoutX="425.0" layoutY="197.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="145.0" progress="0.0" />
       <JFXButton fx:id="buttonTestPassword" layoutX="224.0" layoutY="346.0" onAction="#buttonTestPassword" prefHeight="28.0" prefWidth="132.0" stylesheets="@PTstyle.css" text="Test Strength" textFill="WHITE">
          <font>
             <Font size="17.0" />
@@ -74,10 +75,16 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fx:id="cracktimeResult" fill="WHITE" layoutX="425.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.99999524652958">
+      <Text fx:id="cracktimeResult" fill="WHITE" layoutX="436.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.99999524652958">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
+      <JFXCheckBox fx:id="checkHide" layoutX="483.0" layoutY="91.0" onAction="#checkHideAction" text="Hide" textFill="WHITE" unCheckedColor="#f8f8f8" />
+      <JFXPasswordField fx:id="inputPassField" focusColor="WHITE" layoutX="155.0" layoutY="85.0" onKeyReleased="#updateCheckListPassword" prefHeight="30.0" prefWidth="311.0" style="-fx-background-color: WHITE;" unFocusColor="WHITE" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXPasswordField>
    </children>
 </AnchorPane>

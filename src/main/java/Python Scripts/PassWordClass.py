@@ -48,7 +48,25 @@ class Password:
             self.points+=1
 
 
-        
+    def pre_req(self):
+        count = {}
+        for s in self.password:
+            if s in count:
+                count[s] += 1
+            else:
+                count[s] = 1
+        if len(count) == 0: return
+        maxList = []
+        for key in count:
+            if count[key] > 1:
+                maxList.append(count[key])
+
+        if len(maxList) == 0: return
+
+        if max(maxList)/len(self.password) >= 0.6666666666666666:
+            print("repetitive")
+            print("Instantly")
+            exit()
     def output_strength(self):
 
         if self.Common==True:
@@ -128,14 +146,12 @@ class Password:
 
         
 p = Password(Input)
-file_name = "CommonPasswords.txt"
+file_name = "src/main/java/Python Scripts/CommonPasswords.txt"
+p.pre_req()
 p.check_common(file_name)
 p.calculate_points()
 p.output_strength()
-print(p.Special)
-print(p.Lower)
-print(p.Capital)
-print(p.Numbers)
+
 print(p.time_crack())
 
 
