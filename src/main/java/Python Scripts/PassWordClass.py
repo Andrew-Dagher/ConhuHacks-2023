@@ -12,18 +12,18 @@ class Password:
         self.Common=False
         self.common_item=[]
 
-
+    
     def calculate_points(self):
         special_characters="._-,!#$%&'()*+/:;<=>?@[\]^`{ |}\"~\'"
         capital_letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         numbers="1234567890"
         lower_case_letters="abcdefghijklmnopqrstuvwxyz"
-
+        
 
         password_length = len(self.password) #points for length
         if password_length > 6:
-            self.points += 1
-        self.points += (password_length - 6)
+            self.points += 1 
+        self.points += (password_length - 6) 
 
         for i in range(password_length-1):
             if self.password[i] in special_characters:
@@ -37,7 +37,7 @@ class Password:
 
             elif self.password[i] in lower_case_letters:
                 self.Lower= True
-
+            
         if self.Lower==True: #points for categories
             self.points+=1
         if self.Special==True:
@@ -48,12 +48,12 @@ class Password:
             self.points+=1
 
 
-
+        
     def output_strength(self):
 
         if self.Common==True:
             print("common")
-            return
+            return 
         if self.points>=8:
             print("very strong")
         elif self.points>=6:
@@ -72,13 +72,13 @@ class Password:
                 if item in self.password:
                     self.Common=True
                     self.common_item.append(item)
-
+    
     def time_crack(self):
         special_characters="._-,!#$%&'()*+/:;<=>?@[\]^`{ |}\"~\'"
         capital_letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         numbers="1234567890"
         lower_case_letters="abcdefghijklmnopqrstuvwxyz"
-
+        
         base=0
         exponant=len(self.password)
 
@@ -110,9 +110,9 @@ class Password:
                             if time_s<1:
                                 print("Instantly")
                             else:
-                                print(str(math.trunc(time_s))+" seconds.")
+                                print(str(math.trunc(time_s))+" seconds.")    
                         else:
-                            print(str(math.trunc(time_mi))+" minutes.")
+                            print(str(math.trunc(time_mi))+" minutes.") 
                     else:
                         print(str(math.trunc(time_h))+" hours.")
                 else:
@@ -126,13 +126,16 @@ class Password:
 
 
 
-
+        
 p = Password(Input)
-file_name = "src/main/java/Python Scripts/CommonPasswords.txt"
+file_name = "CommonPasswords.txt"
 p.check_common(file_name)
 p.calculate_points()
 p.output_strength()
-
+print(p.Special)
+print(p.Lower)
+print(p.Capital)
+print(p.Numbers)
 print(p.time_crack())
 
 
