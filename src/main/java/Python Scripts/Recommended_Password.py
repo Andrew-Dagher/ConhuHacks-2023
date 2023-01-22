@@ -27,16 +27,17 @@ def Recommended_Password(words): #does the recommended password
     if Word_Counter<4:
         while True:#make a random consonnant a Capital
             i=random.randint(0,(len(password)-1))
-            if password[i] not in vowels and password[i] != " ": 
+            if password[i] not in vowels and password[i] not in vowel_replacements and password[i] not in spaces_replacements: 
+                
                 password[i]=password[i].upper()
                 break
         
 
-    spassword= ' '.join(password) #make he li a in
+    spassword= ' '.join(password) 
 
 
     print(spassword)
-Recommended_Password("apple dictionnary sauce blabla")       
+    
 
 
 
