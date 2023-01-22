@@ -20,12 +20,12 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </JFXButton>
-        <JFXButton fx:id="openPasswordGenerator" layoutX="404.0" layoutY="181.0" onAction="#openPasswordGeneratorMenu" prefHeight="75.0" prefWidth="189.0" text="Create Password" textFill="WHITE">
+        <JFXButton fx:id="openPasswordGenerator" layoutX="397.0" layoutY="201.0" onAction="#openPasswordGeneratorMenu" prefHeight="55.0" prefWidth="196.0" text="Create Password" textFill="WHITE">
             <font>
                 <Font size="22.0" />
             </font>
         </JFXButton>
-        <JFXButton fx:id="openPasswordTest" layoutX="404.0" layoutY="106.0" onAction="#openPasswordTestAction" prefHeight="75.0" prefWidth="189.0" text="Test Password" textFill="WHITE">
+        <JFXButton fx:id="openPasswordTest" layoutX="397.0" layoutY="121.0" onAction="#openPasswordTestAction" prefHeight="55.0" prefWidth="196.0" text="Test Password" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
