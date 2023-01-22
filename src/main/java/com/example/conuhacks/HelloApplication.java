@@ -38,8 +38,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) throws IOException {
-        Utils a = new Utils();
-        a.runPyScript("C:\\Users\\darra\\IdeaProjects\\hack\\src\\main\\java\\Python Scripts\\RandomScript.py",new String[]{"a","b"});
         launch();
     }
 
