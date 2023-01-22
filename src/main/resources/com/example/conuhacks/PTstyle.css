@@ -7,13 +7,17 @@
         #0B0B45 40%
       );
 }
-    #closeButtonPT:hover {
-        -fx-background-color: red;
+#closeButtonPT:hover {
+    -fx-background-color: red;
 }
-     #BackButtonPT:hover {
-            -fx-background-color: grey;
+
+ #BackButtonPT:hover {
+        -fx-background-color: grey;
 
 
-            }
-    }
+        }
+}
 
+#buttonTestPassword{
+    -fx-border-color: white;
+}

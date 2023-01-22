@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class Utils {
 
@@ -23,7 +24,7 @@ public class Utils {
       Platform.exit();
    }
    Process mProcess;
-   public  void runPyScript(String path,String[] args) throws IOException {
+   public  ArrayList<String> runPyScript(String path, String[] args) throws IOException {
       String s;
       String [] cmd = new String[args.length+2];
       cmd[0] = "python";
@@ -31,14 +32,16 @@ public class Utils {
       for (int i = 2; i < cmd.length; i++){
          cmd[i] = args[i-2];
       }
-      for (String e: cmd) System.out.println(e);
       Runtime r = Runtime.getRuntime();
 
       Process p = r.exec(cmd);
       BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+      ArrayList<String> returnArray = new ArrayList<String>();
       while((s=in.readLine()) != null){
-         System.out.println(s);
+         if (s.equals("None")) continue;
+         returnArray.add(s);
       }
+      return returnArray;
    }
 
 

@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,15 +19,15 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="inputTestingPassword" focusColor="WHITE" layoutX="155.0" layoutY="86.0" prefHeight="27.0" prefWidth="311.0" style="-fx-background-color: White;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="inputTestingPassword" focusColor="WHITE" layoutX="155.0" layoutY="86.0" onKeyPressed="#updateCheckList" prefHeight="27.0" prefWidth="311.0" style="-fx-background-color: White;" unFocusColor="#ffffff00">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXCheckBox layoutX="51.0" layoutY="171.0" text="Length is 10+ Characters" textFill="WHITE" unCheckedColor="#f8f8f8" />
-      <JFXCheckBox layoutX="51.0" layoutY="206.0" text="Special Characters (@, #, $, %, ...)" textFill="WHITE" unCheckedColor="WHITE" />
-      <JFXCheckBox layoutX="51.0" layoutY="241.0" text="Capital Letter Included" textFill="WHITE" unCheckedColor="WHITE" />
-      <JFXCheckBox layoutX="51.0" layoutY="273.0" text="Number Included" textFill="WHITE" unCheckedColor="WHITE" />
+      <JFXCheckBox fx:id="checkListLength" layoutX="51.0" layoutY="171.0" onAction="#undoCheck" text="Length is 10+ Characters" textFill="WHITE" unCheckedColor="#f8f8f8" />
+      <JFXCheckBox fx:id="checkListCharacter" layoutX="51.0" layoutY="206.0" onAction="#undoCheckChar" text="Special Characters (@, #, $, %, ...)" textFill="WHITE" unCheckedColor="WHITE" />
+      <JFXCheckBox fx:id="checkListUpper" layoutX="51.0" layoutY="241.0" onAction="#undoCheckUpper" text="Capital Letter Included" textFill="WHITE" unCheckedColor="WHITE" />
+      <JFXCheckBox fx:id="checkListNumber" layoutX="51.0" layoutY="273.0" onAction="#undoCheckNumber" text="Number Included" textFill="WHITE" unCheckedColor="WHITE" />
       <Text fill="WHITE" layoutX="322.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complexity: ">
          <font>
             <Font size="19.0" />
@@ -37,8 +38,6 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="complexityResult" editable="false" focusColor="WHITE" layoutX="428.0" layoutY="169.0" unFocusColor="WHITE" />
-      <JFXTextField fx:id="cracktimeResult" editable="false" focusColor="WHITE" layoutX="428.0" layoutY="221.0" unFocusColor="WHITE" />
       <JFXButton fx:id="closeButtonPT" layoutX="525.0" onAction="#closeButtomPGAction" prefHeight="45.0" prefWidth="96.0" text="Close" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
@@ -64,5 +63,21 @@
       <Line endX="315.0" endY="7.0" layoutX="286.0" layoutY="319.0" startX="-254.0" startY="4.5" stroke="WHITE" />
       <Line endX="-15.0" endY="180.0" layoutX="616.0" layoutY="144.0" startX="-15.0" startY="-3.0" stroke="WHITE" />
       <Line endX="-15.0" endY="180.0" layoutX="47.0" layoutY="143.0" startX="-13.70709228515625" startY="-1.75" stroke="WHITE" />
+      <ProgressBar fx:id="complexityBar" layoutX="425.0" layoutY="197.0" prefHeight="5.0" prefWidth="145.0" progress="0.16" />
+      <JFXButton fx:id="buttonTestPassword" layoutX="224.0" layoutY="346.0" onAction="#buttonTestPassword" prefHeight="28.0" prefWidth="132.0" stylesheets="@PTstyle.css" text="Test Strength" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <Text fx:id="complexityResult" fill="WHITE" layoutX="425.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.99999524652958">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="cracktimeResult" fill="WHITE" layoutX="425.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.99999524652958">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
