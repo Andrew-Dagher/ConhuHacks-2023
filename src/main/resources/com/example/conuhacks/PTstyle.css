@@ -9,15 +9,23 @@
 }
 #closeButtonPT:hover {
     -fx-background-color: red;
+     -fx-background-radius: 15px;
 }
 
  #BackButtonPT:hover {
         -fx-background-color: grey;
+        -fx-background-radius: 15px;
 
 
         }
-}
 
 #buttonTestPassword{
-    -fx-border-color: white;
+     -fx-border-color: white;
+     -fx-background-color: #0B0B45;
+     }
+
+     #buttonTestPassword:hover{
+     -fx-background-color: grey;
+    }
+
 }

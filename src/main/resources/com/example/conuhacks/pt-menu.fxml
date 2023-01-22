@@ -38,7 +38,7 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <JFXButton fx:id="closeButtonPT" layoutX="525.0" onAction="#closeButtomPGAction" prefHeight="45.0" prefWidth="96.0" text="Close" textFill="WHITE">
+      <JFXButton fx:id="closeButtonPT" layoutX="498.0" layoutY="14.0" onAction="#closeButtomPGAction" prefHeight="45.0" prefWidth="96.0" text="Close" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -53,7 +53,7 @@
             <Image url="@bulldozer_logo.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="BackButtonPT" layoutX="525.0" layoutY="355.0" onAction="#BackButtomPTAction" prefHeight="45.0" prefWidth="96.0" text="← Back" textFill="WHITE">
+      <JFXButton fx:id="BackButtonPT" layoutX="498.0" layoutY="342.0" onAction="#BackButtomPTAction" prefHeight="45.0" prefWidth="96.0" text="← Back" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
