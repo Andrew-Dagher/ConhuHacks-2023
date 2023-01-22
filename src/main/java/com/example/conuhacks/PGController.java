@@ -17,9 +17,11 @@ public class PGController {
 
 
     @FXML
-    private AnchorPane anchorPanePg;{
+    private AnchorPane anchorPanePg;
 
-    }
+    private double x = 0;
+    private double y = 0;
+
 
     public void buttonGeneratePassword(ActionEvent actionEvent) {
         System.out.println("[APP] Application generated a password.");;
@@ -39,6 +41,21 @@ public class PGController {
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load(fxmlLocation);
             Scene scene = new Scene(root);
+
+            scene.setOnMousePressed(mouseEvent -> {
+                x = mouseEvent.getSceneX();
+                y = mouseEvent.getSceneY();
+            });
+
+            scene.setOnMouseDragged(mouseEvent -> {
+                stagePG.setX(mouseEvent.getScreenX() - x);
+                stagePG.setY(mouseEvent.getScreenY() - y);
+            });
+            stagePG.setTitle("Hello!");
+            stagePG.setScene(scene);
+            stagePG.show();
+
+
             scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
             stagePG.setScene(scene);
             stagePG.show();
